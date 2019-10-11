@@ -36,3 +36,16 @@ web 安全分析demo
 - 在(PHP 4 >= 4.1.0, PHP 5 < 5.4.0) 中
 ### 5. register_globals php.ini 配置（5.4 已废除）
 - register_globals=On 传递过来的值会被直接注册为全局变量而直接使用
+
+<hr>
+
+## PHP-Audit-Labs
+>[PHP-Audit-Labs(GitHub 地址)](https://github.com/hongriSec/PHP-Audit-Labs)
+
+1. deom1 in_array() 对比如果没有设置第三个参数为 true 校验就比较轻松 如果是与数组的数字比较就可以使用数字加字符就可以绕过
+
+1.1 扩展就是 '1esd'==1 为true  md5('s155964671a')==md5('QNKCDZO') 也为true 
+>原理是一样的 1esd 转为数字 为1<br>
+>但是1e1 是 就一样了 e 为 1*10^1 为 10<br>
+>md5的比较也是因为他们都是0e 开头  0*10^* 为0<br>
+>解决方案就是 ===
