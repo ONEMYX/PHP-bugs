@@ -1,22 +1,27 @@
 <?php
 
-//url=javascript://comment%250aalert(1);sec-redclub.com
+//http://bug.com/PHP-Audit-Labs/demo2.php?url=javascript://comment%250aalert(1);sec-redclub.com
 
 //$url = filter_var( $_GET['url'], FILTER_VALIDATE_URL );
 //var_dump( $url );
 //$url = htmlspecialchars( $url );
 //var_dump( $url );
 //echo "<a href ='$url' >Next slide>></a>";
+//echo "<img src=x onerror=alert(1)>";
+//exit();
 
+//echo '<script>alert(1)
+//</script>';
 
 $url = $_GET['url'];
 var_dump($url);
 if (isset( $url ) && filter_var( $url, FILTER_VALIDATE_URL )) {
     $site_info = parse_url( $url );
     var_dump( $site_info );
-    if (preg_match( '/baidu.com$/', $site_info['host'] )) {
+    if (preg_match( '/sec-redclub.com$/', $site_info['host'] )) {
         exec( 'curl "' . $site_info['host'] . '"', $result );
-        echo "<center><h1>You have curl {$site_info['host']} successfully!</h1></center>
+        echo "<center><h1>You have curl {$site_info['host']} successfully!
+</h1></center>
               <center><textarea rows='20' cols='90'>";
         echo implode( ' ', $result );
     } else {
@@ -26,3 +31,4 @@ if (isset( $url ) && filter_var( $url, FILTER_VALIDATE_URL )) {
     echo "<center><h1>Just curl sec-redclub.com!</h1></center><br>
           <center><h3>For example:?url=http://sec-redclub.com</h3></center>";
 }
+
