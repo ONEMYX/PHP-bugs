@@ -49,3 +49,10 @@ web 安全分析demo
 >但是1e1 是 就一样了 e 为 1*10^1 为 10<br>
 >md5的比较也是因为他们都是0e 开头  0*10^* 为0<br>
 >解决方案就是 ===
+>
+
+## PHP 弱类型比较
+
+>[PHP弱类型引发的漏洞实例](https://www.freebuf.com/articles/web/166543.html)
+>
+>swith() in_array()  is_number()[没有测试出来]  strcmp()二进制比较 md5()比较
